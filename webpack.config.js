@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   entry: {
     // If you have a single object for "entry", the output-filename is the key of the object.
     main: [

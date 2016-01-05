@@ -1,29 +1,44 @@
 import React from 'react';
 import MessageList from './MessageList';
+import mui from 'material-ui';
+import DarkTheme from 'material-ui/lib/styles/raw-themes/dark-raw-theme';
+
+//console.log(mui.Styles);
+//console.log(DarkTheme);
+
+var Colors = mui.Styles.Colors;
+var AppBar = mui.AppBar;
+
 
 class App extends React.Component {
   constructor() {
     super();
   }
   
-  // doesn't work with the "extends" method
-  //getInitialState() {
-  //  return {
-  //    messages: [
-  //      'cool hats!, this is iiiii  99999',
-  //      'i am fine, yoda yyyy no?'
-  //    ]
-  //  }
-  //}
+  // For something
+  static childContextTypes = {
+    muiTheme: React.PropTypes.object
+  }
   
-  //componentDidMount() {
-  //  this.setState({"messages": [ 'new message']})
-  //}
+  getChildContext() {
+    var defaultTheme = mui.Styles.ThemeManager.getMuiTheme(DarkTheme);
+    //var appTheme = defaultTheme;
+    var appTheme = mui.Styles.ThemeManager.modifyRawThemePalette(defaultTheme, {
+      primary1Color: Colors.red500,
+      primary2Color: Colors.purple500,
+      primary3Color: Colors.deepPurple500,
+      accent1Color: Colors.pink500
+    });
 
+    return {
+      muiTheme: appTheme
+    }
+  }
+  
   render() {
     return (
       <div>
-        <h1>Got some messages here nam syn?</h1>
+        <AppBar title="Awesome Chat App" />
         <MessageList />
       </div>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import MessageList from './MessageList';
+import MessageList from './MessageList.jsx';
 import mui from 'material-ui';
 import DarkTheme from 'material-ui/lib/styles/raw-themes/dark-raw-theme';
 
@@ -8,7 +8,6 @@ import DarkTheme from 'material-ui/lib/styles/raw-themes/dark-raw-theme';
 
 var Colors = mui.Styles.Colors;
 var AppBar = mui.AppBar;
-
 
 class App extends React.Component {
   constructor() {
@@ -24,8 +23,8 @@ class App extends React.Component {
     var defaultTheme = mui.Styles.ThemeManager.getMuiTheme(DarkTheme);
     //var appTheme = defaultTheme;
     var appTheme = mui.Styles.ThemeManager.modifyRawThemePalette(defaultTheme, {
-      primary1Color: Colors.red500,
-      primary2Color: Colors.purple500,
+      primary1Color: Colors.purple500,
+      primary2Color: Colors.red500,
       primary3Color: Colors.deepPurple500,
       accent1Color: Colors.pink500
     });

@@ -1,5 +1,9 @@
 import React from 'react';
-import Message from './Message';
+import Message from './Message.jsx';
+import mui from 'material-ui';
+
+// Get some other components up in here using decomposition from ES2015
+var { Card, List } = mui;
 
 class MessageList extends React.Component {
   constructor(props) {
@@ -22,7 +26,11 @@ class MessageList extends React.Component {
     });
 
     return (
-      <div>{messageNodes}</div>
+      <Card>
+        <List>
+          {messageNodes}
+        </List>
+      </Card>
     );
   }
 }

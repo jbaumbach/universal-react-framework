@@ -1,8 +1,9 @@
 {
-  "name": "react-stack-online-course",
+  "name": "react-stack-demo-learning-project",
   "version": "1.0.0",
   "description": "demo course from pluralsight",
   "main": "index.js",
+  "repository": "github:jbaumbach/universal-react-framework",
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,12 +22,15 @@
   },
   "dependencies": {
     "css-loader": "^0.23.1",
+    "firebase": "^2.3.2",
     "material-ui": "^0.14.1",
     "node-sass": "^3.4.2",
     "react": "^0.14.5",
     "react-dom": "^0.14.5",
     "react-tap-event-plugin": "^0.2.1",
     "sass-loader": "^3.1.2",
-    "style-loader": "^0.13.0"
+    "style-loader": "^0.13.0",
+    "trip": "^0.8.0",
+    "underscore": "^1.8.3"
   }
 }

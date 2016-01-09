@@ -8,10 +8,17 @@ class MessageBox extends React.Component {
     super(props);
 
     this.state = {
-      hello: 'world'
+      message: ''
     }
   }
 
+  onChange(event) {
+    console.log(`got value: ${event.target.value}`);
+    this.setState({
+      message: event.target.value
+    });
+  }
+  
   render() {
     return (
       <Card style={{
@@ -19,7 +26,9 @@ class MessageBox extends React.Component {
         margin: '30px auto',
         padding: 30
       }}>
-        <textarea style={{
+        <textarea
+          onChange={this.onChange.bind(this)}
+          style={{
           width: '100%',
           borderColor: 'green',
           resize: 'none',

@@ -1,6 +1,8 @@
 import React from 'react';
 import Message from './Message.jsx';
 import mui from 'material-ui';
+import Firebase from 'firebase';
+import _ from 'underscore';
 
 // Get some other components up in here using decomposition from ES2015
 var { Card, List } = mui;
@@ -9,19 +11,36 @@ class MessageList extends React.Component {
   constructor(props) {
     super(props);
     
-    // is this still valid?  Note: this constructor doesn't hot refresh for some reason.  The magic has run out.
     this.state = {
-      messages: [
-        'cool hats!, this is uuuuu  15678',
-        'i am fine, yoda yyyy no?'
-      ]
+      messages: []
     }
+    
+    this.fb_Messages = new Firebase('react-demo-ergosoft.firebaseIO.com/messages');
+    
+    //
+    // don't notify us of changes, just get the initial data
+    //
+    this.fb_Messages.once("value", (dataSnapshot) => {
+      var messagesVal = dataSnapshot.val();
+      var messages = _.chain(messagesVal)
+        .keys()
+        .filter((key) => {
+          return messagesVal[key].message;
+        })
+        .map((key) => {
+          return _.extend(messagesVal[key], { key: key });
+        })
+        .value();
+      this.setState({
+        messages: messages
+      });
+    });    
   }
   
   render() {
-    var messageNodes = this.state.messages.map((msg, i) => {
+    var messageNodes = this.state.messages.map((msg) => {
       return (
-        <Message key={i} message={msg} />
+        <Message key={msg.key} message={msg.message} profilePic={msg.profilePic} />
       );
     });
 

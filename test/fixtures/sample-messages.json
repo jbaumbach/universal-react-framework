@@ -1,0 +1,16 @@
+{
+  "messages": {
+    "0": {
+      "message": "Hey there, waddup",
+      "date": "2016-01-09 07:00:00",
+      "author": "John Baumbach",
+      "profilePic": "https://avatars.githubusercontent.com/u/3298070?v=3"
+    },
+    "1": {
+      "message": "Not too shabby",
+      "date": "2016-01-09 08:01:01",
+      "author": "Fred Jones",
+      "profilePic": "https://avatars.githubusercontent.com/u/3298070?v=3"
+    }
+  }
+}

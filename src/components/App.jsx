@@ -1,6 +1,7 @@
 import React from 'react';
 import MessageList from './MessageList.jsx';
 import ChannelList from './ChannelList.jsx';
+import MessageBox from './MessageBox.jsx';
 import mui from 'material-ui';
 import DarkTheme from 'material-ui/lib/styles/raw-themes/dark-raw-theme';
 
@@ -15,11 +16,15 @@ class App extends React.Component {
     super();
   }
   
-  // For something
+  // For something - not explained super well yet
   static childContextTypes = {
     muiTheme: React.PropTypes.object
   };
   
+  //
+  // All children of this component get this context now.  The material-ui components use the "muiTheme" property
+  // of the context to display themselves.
+  //
   getChildContext() {
     var defaultTheme = mui.Styles.ThemeManager.getMuiTheme(DarkTheme);
     //var appTheme = defaultTheme;
@@ -44,11 +49,12 @@ class App extends React.Component {
         flexFlow: 'row wrap',
         maxWidth: 1200,
         width: '100%',
-        margin: '30px auto 30px'
+        margin: '30px auto'
         }}>
           <ChannelList />
           <MessageList />
         </div>
+        <MessageBox />
       </div>
     );
   }

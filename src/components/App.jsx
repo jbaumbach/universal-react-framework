@@ -17,7 +17,7 @@ class App extends React.Component {
   // For something
   static childContextTypes = {
     muiTheme: React.PropTypes.object
-  }
+  };
   
   getChildContext() {
     var defaultTheme = mui.Styles.ThemeManager.getMuiTheme(DarkTheme);

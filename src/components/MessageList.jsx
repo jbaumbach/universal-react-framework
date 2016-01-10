@@ -18,9 +18,9 @@ class MessageList extends React.Component {
     this.fb_Messages = new Firebase('react-demo-ergosoft.firebaseIO.com/messages');
     
     //
-    // don't notify us of changes, just get the initial data
+    // Grab initial data, and keep grabbing changes as well
     //
-    this.fb_Messages.once("value", (dataSnapshot) => {
+    this.fb_Messages.on("value", (dataSnapshot) => {
       var messagesVal = dataSnapshot.val();
       var messages = _.chain(messagesVal)
         .keys()

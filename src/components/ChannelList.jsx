@@ -1,6 +1,7 @@
 import React from 'react';
 import Channel from './Channel.jsx';
 import mui from 'material-ui';
+import Config from '../config';
 
 // Get some other components up in here using decomposition from ES2015
 var { Card, List } = mui;

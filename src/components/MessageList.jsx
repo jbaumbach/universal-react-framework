@@ -3,6 +3,8 @@ import Message from './Message.jsx';
 import mui from 'material-ui';
 import Firebase from 'firebase';
 import _ from 'underscore';
+import Config from '../config';
+import util from 'util';
 
 // Get some other components up in here using decomposition from ES2015
 var { Card, List } = mui;
@@ -15,7 +17,8 @@ class MessageList extends React.Component {
       messages: {}
     }
     
-    this.fb_Messages = new Firebase('react-demo-ergosoft.firebaseIO.com/messages');
+    this.fb_Messages = new Firebase(Config.firebaseCollectionUrl('messages'));
+    console.log(`connection: ${util.inspect(this.state)}`);
     
     //
     // Listen for new message
